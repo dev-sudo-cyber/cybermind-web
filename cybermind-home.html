@@ -1,0 +1,243 @@
+<div class="cm-root" id="cm-top">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;600&display=swap');
+.cm-root,.cm-root *{box-sizing:border-box}
+.cm-root{width:100vw;margin-left:calc(50% - 50vw);position:relative;overflow:hidden;background:#05050A;color:#E9D5FF;font-family:'Inter','Poppins',system-ui,sans-serif;line-height:1.6}
+.cm-root::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(147,51,234,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(147,51,234,.07) 1px,transparent 1px);background-size:56px 56px;-webkit-mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 75%);mask-image:radial-gradient(ellipse at 50% 20%,#000 20%,transparent 75%);pointer-events:none}
+.cm-root::after{content:"";position:absolute;top:-220px;left:50%;width:900px;height:900px;transform:translateX(-50%);background:radial-gradient(circle,rgba(168,85,247,.22),transparent 65%);pointer-events:none}
+.cm-root a{text-decoration:none}
+.cm-wrap{position:relative;z-index:1;width:100%;max-width:1400px;margin:0 auto;padding:0 clamp(20px,5vw,72px)}
+.cm-mono{font-family:'JetBrains Mono',ui-monospace,monospace}
+.cm-fade{opacity:0;transform:translateY(28px);animation:cmUp .8s cubic-bezier(.2,.7,.2,1) forwards;animation-delay:calc(var(--d,0)*.12s)}
+@keyframes cmUp{to{opacity:1;transform:none}}
+@keyframes cmBlink{50%{opacity:0}}
+@keyframes cmFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+/* HERO */
+.cm-hero{min-height:92vh;display:flex;align-items:center;padding:clamp(70px,10vw,130px) 0 clamp(60px,8vw,100px)}
+.cm-hero{position:relative}
+.cm-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-events:none;-webkit-mask-image:linear-gradient(#000 70%,transparent);mask-image:linear-gradient(#000 70%,transparent)}
+.cm-hero .cm-wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(30px,5vw,80px);align-items:center}
+.cm-tag{display:inline-flex;gap:10px;align-items:center;padding:7px 16px;border:1px solid rgba(168,85,247,.4);border-radius:999px;background:rgba(147,51,234,.1);color:#E9D5FF;font-size:13px;letter-spacing:.08em}
+.cm-tag i{width:8px;height:8px;border-radius:50%;background:#A855F7;box-shadow:0 0 12px #A855F7}
+.cm-hero h1{margin:24px 0 20px;font-size:clamp(40px,6.4vw,88px);line-height:1.02;font-weight:900;letter-spacing:-.03em;color:#fff}
+.cm-hero h1 span{background:linear-gradient(90deg,#A855F7,#E9D5FF);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cm-hero p.cm-sub{max-width:620px;font-size:clamp(17px,1.5vw,21px);color:#94A3B8;margin:0 0 34px}
+.cm-motto{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:36px}
+.cm-motto b{padding:6px 14px;border-radius:8px;border:1px solid rgba(233,213,255,.18);color:#E9D5FF;font-weight:600;font-size:14px;letter-spacing:.04em}
+.cm-btns{display:flex;gap:16px;flex-wrap:wrap}
+.cm-btn{display:inline-block;padding:16px 30px;border-radius:12px;font-weight:700;font-size:16px;transition:all .3s ease}
+.cm-btn-p{background:linear-gradient(135deg,#9333EA,#A855F7);color:#fff!important;box-shadow:0 0 28px rgba(168,85,247,.5)}
+.cm-btn-p:hover{transform:translateY(-3px);box-shadow:0 0 48px rgba(168,85,247,.85)}
+.cm-btn-g{border:1px solid rgba(168,85,247,.55);color:#E9D5FF!important;background:rgba(147,51,234,.06)}
+.cm-btn-g:hover{background:rgba(147,51,234,.22);transform:translateY(-3px);box-shadow:0 0 28px rgba(168,85,247,.35)}
+.cm-term{border:1px solid rgba(168,85,247,.45);border-radius:16px;background:rgba(10,8,20,.85);box-shadow:0 0 60px rgba(147,51,234,.25);animation:cmFloat 6s ease-in-out infinite;overflow:hidden}
+.cm-term-bar{display:flex;gap:7px;align-items:center;padding:12px 16px;border-bottom:1px solid rgba(168,85,247,.25);background:rgba(147,51,234,.08)}
+.cm-term-bar i{width:11px;height:11px;border-radius:50%;background:#3b2a5c}
+.cm-term-bar span{margin-left:auto;font-size:12px;color:#94A3B8}
+.cm-term pre{margin:0;padding:22px;font-size:clamp(12px,1.05vw,14.5px);line-height:1.9;color:#94A3B8;white-space:pre-wrap;font-family:'JetBrains Mono',monospace}
+.cm-term em{color:#A855F7;font-style:normal}.cm-term b{color:#E9D5FF;font-weight:600}.cm-term u{text-decoration:none;color:#4ade80}
+.cm-cursor{display:inline-block;width:9px;height:16px;background:#A855F7;vertical-align:middle;animation:cmBlink 1s steps(1) infinite}
+/* SECTIONS */
+.cm-sec{padding:clamp(60px,8vw,110px) 0;position:relative}
+.cm-kicker{font-size:13px;letter-spacing:.2em;color:#A855F7;text-transform:uppercase}
+.cm-sec h2{margin:12px 0 14px;font-size:clamp(30px,4vw,54px);line-height:1.1;font-weight:800;color:#fff;letter-spacing:-.02em}
+.cm-sec .cm-lead{max-width:680px;color:#94A3B8;font-size:18px;margin:0 0 48px}
+.cm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.cm-card{position:relative;padding:30px;border-radius:18px;background:linear-gradient(160deg,rgba(20,14,38,.9),rgba(8,6,16,.9));border:1px solid rgba(168,85,247,.22);transition:all .35s ease;overflow:hidden}
+.cm-card::after{content:"";position:absolute;inset:0;border-radius:18px;background:radial-gradient(circle at 50% 0%,rgba(168,85,247,.18),transparent 60%);opacity:0;transition:opacity .35s}
+.cm-card:hover{transform:translateY(-8px);border-color:#A855F7;box-shadow:0 0 36px rgba(168,85,247,.4),inset 0 0 30px rgba(147,51,234,.08)}
+.cm-card:hover::after{opacity:1}
+.cm-card>*{position:relative;z-index:1}
+.cm-hash{position:absolute!important;top:18px;right:20px;font-size:12px;color:rgba(148,163,184,.55)}
+.cm-ico{width:54px;height:54px;border-radius:14px;display:grid;place-items:center;background:rgba(147,51,234,.16);border:1px solid rgba(168,85,247,.4);margin-bottom:22px;transition:box-shadow .35s}
+.cm-card:hover .cm-ico{box-shadow:0 0 22px rgba(168,85,247,.7)}
+.cm-ico svg{width:28px;height:28px;stroke:#E9D5FF;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cm-card h3{margin:0 0 8px;font-size:21px;color:#fff;font-weight:700}
+.cm-card p{margin:0;color:#94A3B8;font-size:15.5px}
+.cm-card small{display:block;margin-top:16px;color:#A855F7;font-size:12.5px}
+/* TOOLS */
+.cm-tools{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+.cm-tool h3{display:flex;align-items:center;gap:10px}
+.cm-check{display:flex;gap:12px;align-items:center;padding:11px 0;border-bottom:1px dashed rgba(148,163,184,.18);color:#cbd5e1;font-size:15px;cursor:pointer}
+.cm-check input{appearance:none;-webkit-appearance:none;flex:none;width:20px;height:20px;border:1.5px solid #A855F7;border-radius:6px;background:transparent;cursor:pointer;transition:all .2s;display:grid;place-items:center;margin:0}
+.cm-check input:checked{background:#A855F7;box-shadow:0 0 12px #A855F7}
+.cm-check input:checked::after{content:"✓";color:#05050A;font-size:13px;font-weight:900}
+.cm-bar{height:8px;border-radius:99px;background:rgba(148,163,184,.15);margin:20px 0 10px;overflow:hidden}
+.cm-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#9333EA,#E9D5FF);box-shadow:0 0 14px #A855F7;transition:width .45s ease}
+.cm-out{font-size:14px;color:#E9D5FF}
+.cm-rng{margin:16px 0 0}
+.cm-rng label{display:flex;justify-content:space-between;font-size:14px;color:#cbd5e1;margin-bottom:6px}
+.cm-rng label b{color:#A855F7}
+.cm-rng input{width:100%;accent-color:#A855F7;cursor:pointer}
+.cm-res{margin-top:22px;padding:18px;border-radius:12px;text-align:center;border:1px solid rgba(168,85,247,.4);background:rgba(147,51,234,.1);transition:all .3s}
+.cm-res strong{display:block;font-size:34px;color:#fff;line-height:1.1}
+.cm-res span{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:#E9D5FF}
+.cm-soon{list-style:none;margin:6px 0 0;padding:0}
+.cm-soon li{padding:13px 0;border-bottom:1px dashed rgba(148,163,184,.18);color:#cbd5e1;font-size:15px}
+.cm-soon li b{display:block;color:#fff;font-size:16px}
+.cm-soon li em{font-style:normal;font-size:12px;color:#A855F7;margin-left:6px}
+/* CTA */
+.cm-cta{margin:0 0 clamp(50px,7vw,90px);padding:clamp(40px,6vw,80px);text-align:center;border-radius:26px;border:1px solid rgba(168,85,247,.5);background:radial-gradient(ellipse at 50% 0%,rgba(147,51,234,.35),rgba(8,6,16,.95) 70%);box-shadow:0 0 70px rgba(147,51,234,.25)}
+.cm-cta h2{margin-top:0}
+.cm-cta p{color:#94A3B8;max-width:600px;margin:0 auto 32px;font-size:18px}
+.cm-foot{position:relative;z-index:1;border-top:1px solid rgba(168,85,247,.2);padding:30px 0;color:#94A3B8;font-size:14px}
+.cm-foot .cm-wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+.cm-foot b{color:#E9D5FF}
+@media(max-width:1000px){.cm-hero .cm-wrap{grid-template-columns:1fr}.cm-grid,.cm-tools{grid-template-columns:1fr 1fr}.cm-hero{min-height:auto}}
+@media(max-width:640px){.cm-grid,.cm-tools{grid-template-columns:1fr}.cm-btn{width:100%;text-align:center}}
+@media(prefers-reduced-motion:reduce){.cm-fade{animation:none;opacity:1;transform:none}.cm-term{animation:none}}
+</style>
+
+<!-- HERO -->
+<header class="cm-hero">
+<canvas class="cm-canvas" id="cm-net" aria-hidden="true"></canvas>
+<div class="cm-wrap">
+<div>
+<div class="cm-tag cm-mono cm-fade" style="--d:0"><i></i>CYBERMIND // sistema activo</div>
+<h1 class="cm-fade" style="--d:1">El conocimiento es tu <span>mejor defensa</span></h1>
+<p class="cm-sub cm-fade" style="--d:2">Una plataforma de ciberseguridad práctica para la vida cotidiana: aprende a proteger tu información, detectar engaños y tomar mejores decisiones en el mundo digital.</p>
+<div class="cm-motto cm-fade" style="--d:3"><b>Piensa.</b><b>Analiza.</b><b>Protege.</b></div>
+<div class="cm-btns cm-fade" style="--d:4">
+<a class="cm-btn cm-btn-p" href="#cm-herramientas">Probar las herramientas</a>
+<a class="cm-btn cm-btn-g" href="#cm-disciplinas">Explorar disciplinas</a>
+</div>
+</div>
+<div class="cm-term cm-fade" style="--d:3">
+<div class="cm-term-bar"><i></i><i></i><i></i><span class="cm-mono">cybermind@root:~</span></div>
+<pre><em>$</em> <b>cybermind --scan "mi vida digital"</b>
+[<u>ok</u>] cuentas ........ revisando 2FA
+[<u>ok</u>] copias ......... backup verificado
+[!!] enlace ........ posible phishing
+[<u>ok</u>] privacidad ..... permisos revisados
+<em>→</em> riesgo = probabilidad × impacto
+<em>→</em> hash: 0x9F3A...C7D2
+<em>$</em> <span class="cm-cursor"></span></pre>
+</div>
+</div>
+</header>
+
+<!-- DISCIPLINAS -->
+<section class="cm-sec" id="cm-disciplinas">
+<div class="cm-wrap">
+<div class="cm-kicker cm-mono">// 01 · disciplinas</div>
+<h2>Seis áreas, una sola mentalidad</h2>
+<p class="cm-lead">Entender los riesgos, proteger lo importante y decidir con criterio. Todo conectado.</p>
+<div class="cm-grid">
+<article class="cm-card"><span class="cm-hash cm-mono">0x01</span><div class="cm-ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9 12l2 2 4-4"/></svg></div><h3>Ciberseguridad</h3><p>Protege tus cuentas, detecta phishing y actúa rápido si alguien accede a lo tuyo.</p><small class="cm-mono">&gt; vida cotidiana</small></article>
+<article class="cm-card"><span class="cm-hash cm-mono">0x02</span><div class="cm-ico"><svg viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L21 21"/><path d="M8 10.5h5M10.5 8v5"/></svg></div><h3>Forense digital</h3><p>Metadatos, evidencias y rastros: cómo se investiga un incidente digital paso a paso.</p><small class="cm-mono">&gt; analizar evidencias</small></article>
+<article class="cm-card"><span class="cm-hash cm-mono">0x03</span><div class="cm-ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="12" r="6"/><circle cx="15" cy="12" r="6"/></svg></div><h3>Purple Team</h3><p>Red Team y Blue Team colaborando para mejorar la defensa de verdad.</p><small class="cm-mono">&gt; atacar para defender</small></article>
+<article class="cm-card"><span class="cm-hash cm-mono">0x04</span><div class="cm-ico"><svg viewBox="0 0 24 24"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></div><h3>OSINT y psicología</h3><p>Verifica fuentes y entiende por qué caemos en la ingeniería social y los sesgos.</p><small class="cm-mono">&gt; mente + información</small></article>
+<article class="cm-card"><span class="cm-hash cm-mono">0x05</span><div class="cm-ico"><svg viewBox="0 0 24 24"><path d="M18 5H7l6 7-6 7h11"/></svg></div><h3>Matemáticas y probabilidad</h3><p>Mide el riesgo, interpreta datos y toma decisiones sin adivinar.</p><small class="cm-mono">&gt; riesgo = P × I</small></article>
+<article class="cm-card"><span class="cm-hash cm-mono">0x06</span><div class="cm-ico"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></div><h3>Inteligencia empresarial</h3><p>Aplica todo lo anterior a pequeños negocios y decisiones reales.</p><small class="cm-mono">&gt; decidir con datos</small></article>
+</div>
+</div>
+</section>
+
+<!-- HERRAMIENTAS -->
+<section class="cm-sec" id="cm-herramientas">
+<div class="cm-wrap">
+<div class="cm-kicker cm-mono">// 02 · herramientas</div>
+<h2>No solo lees: practicas</h2>
+<p class="cm-lead">Pequeñas herramientas para resolver problemas cotidianos. Pruébalas ahora mismo.</p>
+<div class="cm-tools">
+
+<article class="cm-card cm-tool">
+<span class="cm-hash cm-mono">tool.01</span>
+<h3>Checklist digital</h3>
+<p>¿Qué tan protegida está tu vida digital?</p>
+<div style="margin-top:12px">
+<label class="cm-check"><input type="checkbox" class="cm-c">Autenticación en dos pasos activada</label>
+<label class="cm-check"><input type="checkbox" class="cm-c">Copias de seguridad al día</label>
+<label class="cm-check"><input type="checkbox" class="cm-c">Permisos de apps revisados</label>
+<label class="cm-check"><input type="checkbox" class="cm-c">Dispositivos actualizados</label>
+<label class="cm-check"><input type="checkbox" class="cm-c">Contraseñas únicas por cuenta</label>
+</div>
+<div class="cm-bar"><i id="cm-prog"></i></div>
+<div class="cm-out cm-mono" id="cm-msg">0/5 · empieza a marcar</div>
+</article>
+
+<article class="cm-card cm-tool">
+<span class="cm-hash cm-mono">tool.02</span>
+<h3>Calculadora de riesgos</h3>
+<p>Riesgo = Probabilidad × Impacto</p>
+<div class="cm-rng"><label>Probabilidad <b id="cm-pv">3</b></label><input type="range" min="1" max="5" value="3" id="cm-p"></div>
+<div class="cm-rng"><label>Impacto <b id="cm-iv">3</b></label><input type="range" min="1" max="5" value="3" id="cm-i"></div>
+<div class="cm-res" id="cm-res"><strong id="cm-rv">9</strong><span id="cm-rl">Riesgo medio</span></div>
+</article>
+
+<article class="cm-card cm-tool">
+<span class="cm-hash cm-mono">tool.03+</span>
+<h3>Próximamente</h3>
+<p>Laboratorios en construcción.</p>
+<ul class="cm-soon">
+<li><b>Detector educativo de phishing</b>Correos ficticios y señales de alarma.</li>
+<li><b>Laboratorio de investigación</b>Metadatos y cronologías de casos ficticios.</li>
+<li><b>Simulador de decisiones</b>Costes, ingresos y riesgos de un negocio.</li>
+</ul>
+</article>
+
+</div>
+</div>
+</section>
+
+<!-- CTA -->
+<section class="cm-sec" style="padding-top:20px">
+<div class="cm-wrap">
+<div class="cm-cta">
+<div class="cm-kicker cm-mono">// 03 · empieza</div>
+<h2>Piensa. Analiza. Protege.</h2>
+<p>Entiende los riesgos, protege tu información y toma decisiones inteligentes en el mundo digital y real.</p>
+<div class="cm-btns" style="justify-content:center">
+<a class="cm-btn cm-btn-p" href="#cm-herramientas">Empezar ahora</a>
+<a class="cm-btn cm-btn-g" href="#cm-disciplinas">Ver contenidos</a>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="cm-foot">
+<div class="cm-wrap">
+<div><b class="cm-mono">CYBERMIND</b> · Piensa. Analiza. Protege.</div>
+<div class="cm-mono">© 2026 · Proyecto educativo · hash 0x9F3A</div>
+</div>
+</footer>
+
+<script>
+(function(){
+var cs=document.querySelectorAll('.cm-c'),bar=document.getElementById('cm-prog'),msg=document.getElementById('cm-msg');
+function upd(){var n=0;cs.forEach(function(c){if(c.checked)n++});bar.style.width=(n/cs.length*100)+'%';
+var t=n<2?'protección baja':n<4?'vas por buen camino':n<5?'casi blindado':'¡blindado!';msg.textContent=n+'/'+cs.length+' · '+t}
+cs.forEach(function(c){c.addEventListener('change',upd)});
+var p=document.getElementById('cm-p'),i=document.getElementById('cm-i');
+function calc(){var v=p.value*i.value;document.getElementById('cm-pv').textContent=p.value;document.getElementById('cm-iv').textContent=i.value;
+document.getElementById('cm-rv').textContent=v;
+var l=v<=5?['Riesgo bajo','#4ade80']:v<=12?['Riesgo medio','#E9D5FF']:v<=19?['Riesgo alto','#fb923c']:['Riesgo crítico','#f87171'];
+document.getElementById('cm-rl').textContent=l[0];var r=document.getElementById('cm-res');r.style.borderColor=l[1];r.style.boxShadow='0 0 24px '+l[1]+'55'}
+p.addEventListener('input',calc);i.addEventListener('input',calc);calc();
+/* Red de nodos + ola de código */
+var cv=document.getElementById('cm-net'),cx=cv.getContext('2d'),W,H,N=[],t=0,dpr=Math.min(window.devicePixelRatio||1,2);
+var still=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+var chars='01{}<>/#$&%ABCDEF0123456789';
+function size(){var r=cv.parentNode.getBoundingClientRect();W=r.width;H=r.height;cv.width=W*dpr;cv.height=H*dpr;cx.setTransform(dpr,0,0,dpr,0,0);
+var n=Math.min(110,Math.floor(W*H/14000));N=[];for(var k=0;k<n;k++)N.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.45,vy:(Math.random()-.5)*.45,r:Math.random()*1.8+1})}
+function draw(){
+cx.clearRect(0,0,W,H);
+/* ola de código */
+cx.font='13px "JetBrains Mono",monospace';cx.textAlign='center';
+for(var w=0;w<3;w++){var base=H*(.3+w*.2);
+for(var x=10;x<W;x+=24){var y=base+Math.sin(x*.008+t*1.1+w*1.7)*(38+w*14)+Math.sin(x*.02-t)*10;
+var a=.18+.32*Math.abs(Math.sin(x*.01+t*1.4+w));
+cx.fillStyle='rgba(168,85,247,'+a.toFixed(2)+')';
+cx.fillText(chars.charAt((Math.floor(x/24+t*4)+w*7)%chars.length),x,y)}}
+/* nodos */
+for(var i=0;i<N.length;i++){var a=N[i];
+if(!still){a.x+=a.vx;a.y+=a.vy;if(a.x<0||a.x>W)a.vx*=-1;if(a.y<0||a.y>H)a.vy*=-1}
+for(var j=i+1;j<N.length;j++){var b=N[j],dx=a.x-b.x,dy=a.y-b.y,d=dx*dx+dy*dy;
+if(d<16900){cx.strokeStyle='rgba(168,85,247,'+(.35*(1-d/16900)).toFixed(3)+')';cx.lineWidth=1;cx.beginPath();cx.moveTo(a.x,a.y);cx.lineTo(b.x,b.y);cx.stroke()}}
+cx.beginPath();cx.arc(a.x,a.y,a.r,0,6.283);cx.fillStyle='#A855F7';cx.shadowColor='#A855F7';cx.shadowBlur=10;cx.fill();cx.shadowBlur=0}
+t+=.012;if(!still)requestAnimationFrame(draw)}
+size();draw();
+window.addEventListener('resize',function(){size();if(still)draw()});
+})();
+</script>
+</div>
